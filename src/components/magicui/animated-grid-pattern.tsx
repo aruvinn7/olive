@@ -12,6 +12,11 @@ import {
 
 import { cn } from "@/lib/utils";
 
+type Square = {
+  id: number;
+  pos: [number, number];
+};
+
 export interface AnimatedGridPatternProps
   extends ComponentPropsWithoutRef<"svg"> {
   width?: number;
@@ -43,12 +48,13 @@ export function AnimatedGridPattern({
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   
   
-  function getPos() {
+  const getPos = (): [number, number] => {
     return [
       Math.floor((Math.random() * dimensions.width) / width),
       Math.floor((Math.random() * dimensions.height) / height),
     ];
-  }
+  };
+
 
   // Adjust the generateSquares function to return objects with an id, x, and y
   const generateSquares = useCallback(
