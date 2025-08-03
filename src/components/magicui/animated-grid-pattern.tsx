@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useCallback } from "react";
 import {
   ComponentPropsWithoutRef,
   useEffect,
@@ -40,8 +41,8 @@ export function AnimatedGridPattern({
   const id = useId();
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [squares, setSquares] = useState(() => generateSquares(numSquares));
-
+  
+  
   function getPos() {
     return [
       Math.floor((Math.random() * dimensions.width) / width),
@@ -50,12 +51,15 @@ export function AnimatedGridPattern({
   }
 
   // Adjust the generateSquares function to return objects with an id, x, and y
-  function generateSquares(count: number) {
-    return Array.from({ length: count }, (_, i) => ({
-      id: i,
-      pos: getPos(),
-    }));
-  }
+  const generateSquares = useCallback(
+    (count: number) => {
+      return Array.from({ length: count }, (_, i) => ({
+        id: i,
+        pos: getPos(),
+      }));
+    },
+    [dimensions], // karena getPos bergantung ke dimensions
+  );
 
   // Function to update a single square's position
   const updateSquarePosition = (id: number) => {
@@ -70,7 +74,8 @@ export function AnimatedGridPattern({
       ),
     );
   };
-
+  const [squares, setSquares] = useState<Square[]>(() => generateSquares(numSquares));
+  
   // Update squares to animate in
   useEffect(() => {
     if (dimensions.width && dimensions.height) {
@@ -89,16 +94,18 @@ export function AnimatedGridPattern({
       }
     });
 
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current);
-    }
+    const node = containerRef.current;
 
-    return () => {
-      if (containerRef.current) {
-        resizeObserver.unobserve(containerRef.current);
-      }
-    };
-  }, [containerRef]);
+    if (node) {
+    resizeObserver.observe(node);
+  }
+
+  return () => {
+    if (node) {
+      resizeObserver.unobserve(node);
+    }
+  };
+}, []);
 
   return (
     <svg
