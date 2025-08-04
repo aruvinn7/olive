@@ -53,7 +53,7 @@ summary:
       },
       Instagram : {
         name : "Instagram",
-        url : "https:/instagram.com/oliviavlna",
+        url : "https://instagram.com/oliviavlna",
         icon : Icons.instagram,
         navbar : true,
       },
