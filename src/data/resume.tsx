@@ -47,7 +47,7 @@ summary:
       },
       Disneyland : {
         name : 'Disneyland',
-        url : 'https:/',
+        url : 'https://memoir1.vercel.app/',
         icon : Icons.disneyland,
         navbar : true
       },
