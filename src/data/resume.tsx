@@ -2,7 +2,7 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Olivia Valentina",
-  initials: "DV",
+  initials: "OV",
   url: "https://dillion.io",
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
@@ -138,7 +138,7 @@ summary:
       start: "Jul 2024",
       end: "Nov 2024",
       description:
-        "Co-developed a prototype iOS app with another intern in Swift for the new Splunk Phantom security orchestration product (later publicly demoed and launched at .conf annual conference in Las Vegas). Implemented a realtime service for the iOS app in Django (Python) and C++; serialized data using protobufs transmitted over gRPC resulting in an approximate 500% increase in data throughput.",
+        "",
     },
         {
       company: "Himpunan Mahasiswa Teknik Industri",
@@ -155,14 +155,14 @@ summary:
         {
       company: "Himpunan Mahasiswa Teknik Industri",
       badges: [],
-      href: "https://shopify.com",
+      href: "https://www.instagram.com/hmtiub/",
       location: "Remote",
       title: "Fundraising and Sponsorship Staff - Dies Natalis TI UB 2024",
       logoUrl: "/hmti.png",
       start: "Apr 2024",
       end: "Jun 2024",
       description:
-        "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
+        "",
     },
     {
       company: "Brawijaya Goes To CPNS",
